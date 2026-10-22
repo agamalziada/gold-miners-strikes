@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>كم يبعد كل شيء عن إيقاد؟</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#378ADD;--coral:#D85A30;--teal:#1D9E75;--amber:#BA7517;--gray:#888780;--bg:#fff;--fg:#2c2c2a;--muted:#5f5e5a;--soft:#f1efe8;--line:#e3e1d9;--track:#efede6;--coral-t:#faece7;--coral-d:#993C1D;--teal-t:#e3f3ec;--teal-d:#0F6E50;--amber-t:#fbf0de;--amber-d:#7A4C0D;--blue-t:#e6f0fb;--blue-d:#1F5F9E;--tx:-50%;}
+html[dir=rtl]{--tx:50%;}
+@media(prefers-color-scheme:dark){:root{--blue:#85B7EB;--coral:#F0997B;--teal:#5DCAA5;--amber:#FAC775;--gray:#a3a198;--bg:#1a1a18;--fg:#d3d1c7;--muted:#b4b2a9;--soft:#2c2c2a;--line:#3a3a37;--track:#2c2c2a;--coral-t:#3a2620;--coral-d:#F5B9A3;--teal-t:#1b3029;--teal-d:#8FDCC0;--amber-t:#382d1c;--amber-d:#FAD9A0;--blue-t:#1d2939;--blue-d:#A9CCF2;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Tajawal",sans-serif;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased;}
+#root{padding:clamp(12px,3vw,20px);}
+.hdr{border-inline-start:3px solid #378ADD;padding-inline-start:10px;margin-bottom:10px;}
+.tag{font-size:clamp(9px,2vw,10px);font-weight:700;letter-spacing:.06em;color:var(--gray);margin-bottom:2px;}
+.ttl{font-size:clamp(13px,3.5vw,15px);font-weight:700;line-height:1.4;margin-bottom:2px;}
+.sub{font-size:clamp(11px,2.5vw,12px);color:var(--muted);line-height:1.5;}
+.callout{background:var(--soft);border-inline-start:3px solid #378ADD;padding:8px 11px;font-size:clamp(11px,2.5vw,12px);color:var(--muted);line-height:1.6;margin:9px 0 12px;font-style:italic;}
+.src{font-size:clamp(9px,2vw,10px);color:var(--gray);margin-top:10px;line-height:1.5;}
+.ins{border-inline-start:3px solid var(--coral);background:var(--coral-t);color:var(--coral-d);padding:9px 12px;border-radius:6px;font-size:clamp(10.5px,2.5vw,11.5px);line-height:1.65;margin-top:12px;font-weight:500;}
+.ins.amber{border-color:var(--amber);background:var(--amber-t);color:var(--amber-d);}
+.ins.teal{border-color:var(--teal);background:var(--teal-t);color:var(--teal-d);}
+.ins.blue{border-color:var(--blue);background:var(--blue-t);color:var(--blue-d);}
+.note{font-size:clamp(9.5px,2.2vw,10.5px);color:var(--muted);line-height:1.6;margin-top:9px;}
+.warn{font-size:clamp(10px,2.4vw,11px);font-weight:700;color:var(--coral);margin-top:7px;line-height:1.5;}
+.sec{font-size:clamp(10.5px,2.6vw,11.5px);font-weight:700;margin:4px 0 9px;display:flex;align-items:center;gap:6px;}
+.sec:before{content:"";flex:0 0 auto;width:8px;height:8px;border-radius:2px;background:#378ADD;}
+.gap{height:14px;}
+.lg{display:flex;flex-wrap:wrap;gap:5px 14px;font-size:clamp(9.5px,2.2vw,10.5px);color:var(--muted);margin-top:6px;}
+.lg span{display:inline-flex;align-items:center;gap:5px;}
+.sw{width:12px;height:8px;border-radius:2px;display:inline-block;flex:0 0 auto;}
+.hatch{background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.5) 0 2px,transparent 2px 5px);}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block;}
+.hb-row{margin-bottom:clamp(7px,1.8vw,9px);}
+.hb-lab{display:flex;flex-wrap:wrap;align-items:baseline;gap:1px 7px;margin-bottom:3px;line-height:1.35;}
+.hb-n{font-weight:700;font-size:clamp(10.5px,2.6vw,12px);}
+.hb-s{font-size:clamp(9px,2.2vw,10px);color:var(--muted);}
+.badge{font-size:clamp(8.5px,2vw,9.5px);font-weight:700;color:var(--bg);background:var(--coral);border-radius:3px;padding:1px 5px;}
+.hb-bar{display:flex;align-items:center;gap:8px;}
+.hb-track{position:relative;flex:1;height:clamp(10px,2.4vw,12px);background:var(--track);border-radius:3px;overflow:hidden;}
+.hb-f{position:absolute;top:0;bottom:0;width:0;border-radius:3px;transition:width 1s cubic-bezier(.2,.7,.2,1);}
+.hb-v{flex:0 0 auto;min-width:4.6em;font-weight:800;font-size:clamp(11px,2.8vw,13px);text-align:end;}
+.tbl{width:100%;border-collapse:collapse;font-size:clamp(10px,2.5vw,12px);}
+.tbl th{padding:8px 7px;font-weight:700;border-bottom:2px solid var(--line);text-align:center;vertical-align:bottom;}
+.tbl th:first-child,.tbl td:first-child{text-align:start;}
+.tbl td{padding:9px 7px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle;line-height:1.45;}
+.tbl tr:last-child td{border-bottom:none;}
+.tbl td b{font-size:clamp(12px,3vw,14px);font-weight:800;}
+.tbl .u{display:block;font-size:clamp(9px,2.1vw,10px);color:var(--muted);font-weight:400;}
+.tbl tr.hl td{background:var(--coral-t);}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+@media(max-width:400px){.g3.w{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.tile{border-radius:8px;padding:clamp(9px,2.5vw,12px);background:var(--soft);}
+.tile .big{font-size:clamp(20px,5.5vw,26px);font-weight:800;line-height:1.1;}
+.tile .lb{font-size:clamp(10px,2.4vw,11px);margin-top:4px;line-height:1.45;}
+.tile .sm{font-size:clamp(9px,2.1vw,10px);color:var(--muted);margin-top:4px;line-height:1.4;}
+.vt{position:relative;padding-inline-start:20px;}
+.vt:before{content:"";position:absolute;top:6px;bottom:6px;inset-inline-start:6px;width:2px;background:var(--line);}
+.vt-m{font-size:clamp(9.5px,2.2vw,10.5px);font-weight:800;color:var(--muted);letter-spacing:.05em;margin:10px 0 3px;}
+.vt-m:first-child{margin-top:0;}
+.vt-e{position:relative;padding:4px 0 8px;}
+.vt-e:before{content:"";position:absolute;inset-inline-start:-21px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--c);border:3px solid var(--bg);box-sizing:border-box;}
+.vt-e.dash:before{background:var(--bg);border:2px dashed var(--gray);}
+.vt-d{font-size:clamp(10px,2.4vw,11px);font-weight:800;color:var(--c);}
+.vt-x{font-size:clamp(10.5px,2.6vw,11.5px);line-height:1.55;}
+.vt-x small{display:block;color:var(--muted);font-size:clamp(9px,2.2vw,10px);}
+.pop{opacity:0;transition:opacity .5s ease;}
+
+.lat{border-radius:8px;background:var(--soft);padding:10px 12px;}
+.lat-z{font-size:clamp(9px,2.1vw,10px);font-weight:700;color:var(--muted);margin-bottom:3px;}
+.lat-i{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:4px 0;font-size:clamp(10.5px,2.6vw,11.5px);}
+.lat-i b{font-weight:800;white-space:nowrap;}
+.lat-line{position:relative;margin:14px 0 12px;border-top:2px dashed var(--coral);}
+.lat-line span{position:absolute;top:-10px;inset-inline-start:50%;transform:translateX(var(--tx));background:var(--soft);padding:0 8px;font-size:clamp(9.5px,2.3vw,10.5px);font-weight:800;color:var(--coral);white-space:nowrap;}
+</style>
+</head>
+<body><div id="root">
+  <div class="hdr"><p class="tag">زاوية ثالثة · إنفوجرافيك ⑤ من ⑬</p><p class="ttl">كم يبعد كل شيء عن إيقاد؟</p><p class="sub">المسافات من موقع الغارة، وموضع كل نقطة بالنسبة إلى دائرة العرض 22</p></div>
+  <div class="callout">"على بعد 186 و204 كيلومترات من موقع الغارة"، و"سوق الأنصاري… على بعد 45 كيلومترًا جنوب الإحداثي"</div>
+  <p class="sec">المسافة من إيقاد</p><div class="hb"><div class="hb-row"><div class="hb-lab"><span class="hb-n">حنجلية</span><span class="hb-s"></span></div><div class="hb-bar"><div class="hb-track"><div class="hb-f" style="inset-inline-start:0.00%;background-color:var(--blue);transition-delay:0ms" data-w="100.00%"></div></div><span class="hb-v" style="color:var(--fg)">308 كم</span></div></div><div class="hb-row"><div class="hb-lab"><span class="hb-n">النقطة العسكرية الأولى</span><span class="hb-s"><span dir="ltr" class="ltr">21.9964, 36.8764</span></span></div><div class="hb-bar"><div class="hb-track"><div class="hb-f" style="inset-inline-start:0.00%;background-color:var(--coral);transition-delay:70ms" data-w="66.23%"></div></div><span class="hb-v" style="color:var(--fg)">204 كم</span></div></div><div class="hb-row"><div class="hb-lab"><span class="hb-n">النقطة العسكرية الثانية</span><span class="hb-s"><span dir="ltr" class="ltr">21.9971, 36.7078</span></span></div><div class="hb-bar"><div class="hb-track"><div class="hb-f" style="inset-inline-start:0.00%;background-color:var(--coral);transition-delay:140ms" data-w="60.39%"></div></div><span class="hb-v" style="color:var(--fg)">186 كم</span></div></div><div class="hb-row"><div class="hb-lab"><span class="hb-n">سوق الأنصاري</span><span class="hb-s">جنوبًا</span></div><div class="hb-bar"><div class="hb-track"><div class="hb-f" style="inset-inline-start:0.00%;background-color:var(--gray);transition-delay:210ms" data-w="14.61%"></div></div><span class="hb-v" style="color:var(--fg)">45 كم</span></div></div><div class="hb-row"><div class="hb-lab"><span class="hb-n">جبل عيقات</span><span class="hb-s">بحسب قاعدة الأسماء الجغرافية GNS</span></div><div class="hb-bar"><div class="hb-track"><div class="hb-f hatch" style="inset-inline-start:0.00%;background-color:var(--gray);transition-delay:280ms" data-w="1.30%"></div></div><span class="hb-v" style="color:var(--fg)"><span dir="ltr" class="ltr">~4</span> كم</span></div></div></div><p class="sec" style="margin-top:14px">الموضع بالنسبة إلى دائرة العرض 22 (الرسم غير متناسب)</p><div class="lat"><p class="lat-z">↑ شمال دائرة العرض 22</p><div class="lat-i"><span>حنجلية</span><b style="color:var(--blue)">315 كم شمالًا</b></div><div class="lat-i"><span>إيقاد (موقع الغارة)</span><b>8.7 كم شمالًا</b></div><div class="lat-line"><span>دائرة العرض 22</span></div><div class="lat-i"><span>النقطة العسكرية الثانية</span><b style="color:var(--coral)">320 مترًا جنوبًا</b></div><div class="lat-i"><span>النقطة العسكرية الأولى</span><b style="color:var(--coral)">400 متر جنوبًا</b></div><p class="lat-z" style="margin-top:3px">↓ جنوب دائرة العرض 22</p></div><p class="note">تقع إيقاد على بعد نحو 77 كم جنوب الخط الإداري لعام 1902 عند خط طولها.</p><div class="ins blue">الموقعان يفصلهما 308 كم، والنقطتان العسكريتان على بعد يتجاوز 180 كم من موقع الغارة.</div>
+  <p class="src">المصدر: حسابات زاوية ثالثة الجيوديسية للمسافات بين الإحداثيات (نظام WGS84)</p>
+</div>
+<script>
+(function(){setTimeout(function(){var a=document.querySelectorAll("[data-w]");for(var i=0;i<a.length;i++){a[i].style.width=a[i].getAttribute("data-w");}var b=document.querySelectorAll("[data-h]");for(var j=0;j<b.length;j++){b[j].style.height=b[j].getAttribute("data-h");}var c=document.querySelectorAll(".pop");for(var k=0;k<c.length;k++){c[k].style.opacity="1";}},180);})();
+(function(){var els=document.querySelectorAll("[data-n]");if(!els.length)return;var fin=[];for(var i=0;i<els.length;i++){fin.push(els[i].innerHTML);}var s=null;function f(ts){if(!s)s=ts;var p=Math.min((ts-s)/900,1),e=1-Math.pow(1-p,3);for(var i=0;i<els.length;i++){var n=parseFloat(els[i].getAttribute("data-n"));var d=parseInt(els[i].getAttribute("data-d")||"0",10);els[i].textContent=(e*n).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});}if(p<1){requestAnimationFrame(f);}else{for(var j=0;j<els.length;j++){els[j].innerHTML=fin[j];}}}setTimeout(function(){requestAnimationFrame(f);},200);})();
+(function(){function notify(){var h=document.getElementById("root").offsetHeight;window.parent.postMessage({type:"chartResize",height:h},"*");}
+setTimeout(notify,1400);window.addEventListener("resize",notify);
+try{new ResizeObserver(function(){setTimeout(notify,80);}).observe(document.body);}catch(e){}})();
+</script></body></html>
